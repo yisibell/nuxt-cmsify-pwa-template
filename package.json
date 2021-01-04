@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-starter-template",
+  "name": "nuxt-cmsify-pwa-template",
   "version": "1.0.0",
   "description": "A Nuxt starter template.",
   "author": {
@@ -20,10 +20,10 @@
     "build:prod": "cross-env NUXT_ENV_APP=production nuxt build",
     "start": "nuxt start",
     "pm2:start": "pm2 start",
-    "pm2:stop": "pm2 stop NuxtStarterTemplate",
-    "pm2:restart": "pm2 restart NuxtStarterTemplate",
-    "pm2:reload": "pm2 reload NuxtStarterTemplate",
-    "pm2:delete": "pm2 delete NuxtStarterTemplate",
+    "pm2:stop": "pm2 stop NuxtCmsifyPwaTemplate",
+    "pm2:restart": "pm2 restart NuxtCmsifyPwaTemplate",
+    "pm2:reload": "pm2 reload NuxtCmsifyPwaTemplate",
+    "pm2:delete": "pm2 delete NuxtCmsifyPwaTemplate",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js",

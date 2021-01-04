@@ -1,6 +1,4 @@
-# nuxt-starter-template
-
-A Nuxt + vuetify starter template.
+# nuxt-cmsify-pwa-template
 
 # Build Setup
 
