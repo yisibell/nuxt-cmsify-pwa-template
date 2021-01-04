@@ -1,0 +1,10 @@
+// 自定义 vue-toasted 样式
+
+.my-custom-toasted.my-custom-toasted.my-custom-toasted {
+  justify-content: flex-start;
+
+  // 自定义 warning 类型的 toasted 样式
+  &.warning {
+    background-color: $--color-warning;
+  }
+}

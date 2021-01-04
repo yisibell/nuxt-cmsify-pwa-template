@@ -1,0 +1,62 @@
+{
+  "name": "nuxt-starter-template",
+  "version": "1.0.0",
+  "description": "A Nuxt starter template.",
+  "author": {
+    "name": "elenh",
+    "email": "yisiwings@163.com"
+  },
+  "keywords": [
+    "vue",
+    "nuxt",
+    "starter template",
+    "ssr",
+    "vuetify",
+    "pm2"
+  ],
+  "scripts": {
+    "dev": "nuxt",
+    "build:ft": "cross-env NUXT_ENV_APP=ft nuxt build",
+    "build:prod": "cross-env NUXT_ENV_APP=production nuxt build",
+    "start": "nuxt start",
+    "pm2:start": "pm2 start",
+    "pm2:stop": "pm2 stop NuxtStarterTemplate",
+    "pm2:restart": "pm2 restart NuxtStarterTemplate",
+    "pm2:reload": "pm2 reload NuxtStarterTemplate",
+    "pm2:delete": "pm2 delete NuxtStarterTemplate",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "npm run lint:js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@aidol/svg-icon": "^1.2.0",
+    "@nuxtjs/axios": "^5.12.2",
+    "core-js": "^3.6.5",
+    "nuxt": "^2.14.6",
+    "vue-toasted": "^1.1.28"
+  },
+  "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/vuetify": "^1.11.2",
+    "@vue/test-utils": "^1.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.5.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.5.0",
+    "prettier": "^2.1.2",
+    "qs": "^6.9.4",
+    "svg-sprite-loader": "^5.0.0",
+    "vue-jest": "^3.0.4"
+  },
+  "engines": {
+    "node": ">= 10.x"
+  }
+}
