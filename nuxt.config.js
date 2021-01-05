@@ -25,14 +25,14 @@ export default {
   telemetry: true,
   server: {
     host: '0.0.0.0',
-    port: 3000,
+    port: 3001,
   },
   // nuxt 构建源码目录
   srcDir,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: '%s - nuxt-starter-template',
-    title: 'nuxt-starter-template',
+    titleTemplate: '%s - nuxt-cmsify-pwa',
+    title: 'nuxt-cmsify-pwa',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -67,6 +67,7 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     ['@nuxtjs/dotenv', { filename: envFileName(), path: './' }],
+    '@nuxtjs/pwa',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -91,6 +92,14 @@ export default {
           success: colors.green.accent3,
         },
       },
+    },
+  },
+
+  pwa: {
+    manifest: {
+      name: 'Nuxt Cmsify Pwa',
+      lang: 'en',
+      useWebmanifestExtension: false,
     },
   },
 
