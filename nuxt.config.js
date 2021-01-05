@@ -3,6 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 
 require('dotenv').config()
 
+const srcDir = 'client'
+
 function envFileName() {
   const { NUXT_ENV_APP } = process.env
 
@@ -14,8 +16,6 @@ function envFileName() {
 
   return '.env.development'
 }
-
-const srcDir = 'client'
 
 function resolve(dir) {
   return path.join(__dirname, srcDir, dir)
@@ -68,6 +68,7 @@ export default {
     '@nuxtjs/vuetify',
     ['@nuxtjs/dotenv', { filename: envFileName(), path: './' }],
     '@nuxtjs/pwa',
+    '@nuxtjs/composition-api',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
