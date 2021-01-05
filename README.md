@@ -1,5 +1,7 @@
 # nuxt-cmsify-pwa-template
 
+A Progressive Web App based on Nuxt.js.
+
 # Build Setup
 
 ```bash
@@ -24,7 +26,19 @@ npm run pm2:start
 $ npm run generate
 ```
 
-打开浏览器预览：**localhost:3000/**。
+打开浏览器预览：**localhost:3001/**。
+
+# Used Technologies
+
+- **nuxt.js**
+- **@nuxtjs/pwa**
+- **@nuxtjs/composition-api**
+- **@nuxtjs/axios**
+- **@nuxtjs/dotenv**
+- **@nuxtjs/vuetify**
+- **typescript**
+- **scss**
+- **vue-toasted**
 
 # Features
 
