@@ -26,13 +26,17 @@ const createSection = (sectionId = 1, pageId = 1) => ({
   ],
 })
 
-export const useCms = () => {
+export const useCms = (ctx) => {
+  const { store } = ctx
   const page = ref({
     resourceType: 'frontend.navigation.page',
     cmsPage: {
       sections: [createSection(), createSection(2, 1), createSection(3, 1)],
     },
   })
+
+  // 接口拉取页面数据
+  store.commit('cms/SET_PAGE', { test: '' })
 
   return {
     page,

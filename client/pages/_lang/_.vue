@@ -20,10 +20,8 @@ export function getComponentBy(resourceType) {
 }
 
 export default {
-  asyncData({ params }) {
-    console.log(params)
-
-    const { page } = useCms()
+  asyncData(ctx) {
+    const { page } = useCms(ctx)
 
     return {
       page: page.value,
