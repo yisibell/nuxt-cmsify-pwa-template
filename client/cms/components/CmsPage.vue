@@ -1,6 +1,6 @@
 <template>
   <div class="cms-page">
-    <CmsGenericSection
+    <cms-generic-section
       v-for="cmsSection in cmsSections"
       :key="cmsSection.id"
       :content="cmsSection"
@@ -9,11 +9,8 @@
 </template>
 
 <script>
-import CmsGenericSection from './CmsGenericSection'
 export default {
-  components: {
-    CmsGenericSection,
-  },
+  name: 'CmsPage',
   props: {
     content: {
       type: Object,
@@ -22,8 +19,15 @@ export default {
   },
   computed: {
     cmsSections() {
-      return this.content?.sections || []
+      return this.content ? this.content.sections : []
     },
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.cms-page {
+  border: 2px solid blue;
+  padding: 15px;
+}
+</style>

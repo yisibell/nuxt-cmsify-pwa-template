@@ -2,6 +2,10 @@ export default {
   sections: {
     default: 'CmsSectionDefault',
   },
-  blocks: {},
-  elements: {},
+  blocks: {
+    text: 'CmsBlockDefault',
+  },
+  elements: {
+    text: 'CmsElementText',
+  },
 }

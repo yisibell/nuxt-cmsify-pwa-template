@@ -1,9 +1,14 @@
 <template>
-  <component :is="getComponent" :content="content" :style="slotStyles" />
+  <component
+    :is="getComponent"
+    :content="content"
+    :style="slotStyles"
+    class="cms-section"
+  />
 </template>
 
 <script>
-import { getCmsSectionComponent } from './cmsNameMapper'
+import { getCmsSectionComponent } from '../cmsNameMapper'
 export default {
   name: 'CmsGenericSection',
   props: {
@@ -28,3 +33,10 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.cms-section {
+  border: 2px solid yellow;
+  padding: 15px;
+}
+</style>

@@ -55,6 +55,7 @@ export default {
     { src: '~/plugins/vue-toasted', mode: 'client' },
     { src: '~/plugins/request' },
     { src: '~/plugins/svg-icon', mode: 'client' },
+    { src: '~/plugins/cms', mode: 'client' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
