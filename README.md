@@ -42,13 +42,21 @@ $ npm run generate
 
 # Features
 
-## :ok: 多语言
+## 支持多语言
 
-## :ok: 可使用 cms 的方式自定义页面内容
+**状态：** :heavy_check_mark:
+
+## 支持以 cms 的方式自定义页面内容
+
+**状态：** :heavy_check_mark:
 
 ## 渐进式 Web 应用
 
+**状态：** :x:
+
 ## 友好的**开发**、**正式生产** 和 **测试生产** 环境区分，基于 `@nuxtjs/dotenv` 设计。
+
+**状态：** :heavy_check_mark:
 
 在项目根目录下，有 3 个 `env` 文件，分别为：
 
@@ -280,6 +288,8 @@ export const actions = {
 
 ## vue-toasted 插件封装
 
+**状态：** :heavy_check_mark:
+
 该模板封装了 `vue-toasted` 插件，方便使用，且易于扩展其配置。定义文件位于 `~/plugins/vue-toasted.js`。
 
 你可以在 `*.vue` 或 `store` 中的 `mutations` 、`actions` 中使用 `$toast`。
@@ -303,6 +313,8 @@ export default {
 可在 `~/assets/styles/modules/vue-toasted-custom.scss` 中修改 `vue-toasted` 的相关样式。
 
 ## sprite svg icon
+
+**状态：** :heavy_check_mark:
 
 你可以在项目中很方便的使用自己的 `svg` 图标。
 
