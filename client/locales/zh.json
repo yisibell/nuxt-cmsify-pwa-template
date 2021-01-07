@@ -1,5 +1,10 @@
 {
   "home": {
     "title": "欢迎"
+  },
+  "bottomNavgation": {
+    "account": "账户",
+    "favorites": "喜欢",
+    "cart": "购物车"
   }
 }

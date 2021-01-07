@@ -63,22 +63,22 @@
 
     <v-bottom-navigation :input-value="isMobile" color="teal" grow app>
       <v-btn>
-        <span>Account</span>
-        <v-icon>mdi-account</v-icon>
-      </v-btn>
-
-      <v-btn>
-        <span>Favorites</span>
+        <span>{{ $t('bottomNavgation.favorites') }}</span>
         <v-badge color="pink" content="3" overlap
           ><v-icon>mdi-heart</v-icon></v-badge
         >
       </v-btn>
 
       <v-btn>
-        <span>Cart</span>
+        <span>{{ $t('bottomNavgation.cart') }}</span>
         <v-badge color="green" content="2" overlap
           ><v-icon>mdi-cart</v-icon></v-badge
         >
+      </v-btn>
+
+      <v-btn>
+        <span>{{ $t('bottomNavgation.account') }}</span>
+        <v-icon>mdi-account</v-icon>
       </v-btn>
     </v-bottom-navigation>
 
