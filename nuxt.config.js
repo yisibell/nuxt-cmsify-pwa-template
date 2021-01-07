@@ -92,13 +92,8 @@ export default {
   pwa: {
     manifest: {
       name: 'Nuxt Cmsify Pwa',
-      short_name: 'cmsify',
       lang: 'en',
       useWebmanifestExtension: false,
-      description: '全球最具影响力的渐进式 Web 应用框架。',
-      background_color: '#2baf88',
-      theme_color: '#2baf88',
-      start_url: '/',
     },
   },
 
