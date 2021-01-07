@@ -16,7 +16,7 @@ export default {
   telemetry: true,
   server: {
     host: '0.0.0.0',
-    port: 3001,
+    port: 80,
   },
   // nuxt 构建源码目录
   srcDir,
