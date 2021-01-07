@@ -20,6 +20,7 @@
     "dev": "nuxt",
     "build:ft": "cross-env NUXT_ENV_APP=ft nuxt build",
     "build:prod": "cross-env NUXT_ENV_APP=production nuxt build",
+    "build": "cross-env NUXT_ENV_APP=production nuxt build",
     "start": "nuxt start",
     "pm2:start": "pm2 start",
     "pm2:stop": "pm2 stop NuxtCmsifyPwaTemplate",
