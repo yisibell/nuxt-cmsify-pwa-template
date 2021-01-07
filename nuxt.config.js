@@ -22,6 +22,9 @@ function resolve(dir) {
 }
 
 export default {
+  router: {
+    middleware: 'i18n',
+  },
   telemetry: true,
   server: {
     host: '0.0.0.0',
@@ -56,6 +59,7 @@ export default {
     { src: '~/plugins/request' },
     { src: '~/plugins/svg-icon', mode: 'client' },
     { src: '~/plugins/cms', mode: 'client' },
+    { src: '~/plugins/i18n' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
