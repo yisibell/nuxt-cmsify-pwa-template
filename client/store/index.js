@@ -1,6 +1,6 @@
 export const state = () => ({
   token: 'this is a awesome token',
-  locales: ['en', 'zh'],
+  locales: ['en', 'zhHans'],
   locale: 'en',
 })
 
