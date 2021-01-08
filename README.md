@@ -52,7 +52,7 @@ $ npm run generate
 
 ## 渐进式 Web 应用
 
-**状态：** :x:
+**状态：** :heavy_check_mark:
 
 ## 友好的**开发**、**正式生产** 和 **测试生产** 环境区分，基于 `@nuxtjs/dotenv` 设计。
 

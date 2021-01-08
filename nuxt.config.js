@@ -79,6 +79,15 @@ export default {
     theme: {
       dark: true,
       themes: {
+        light: {
+          primary: '#2196f3',
+          secondary: '#03a9f4',
+          accent: '#00bcd4',
+          error: '#f44336',
+          warning: '#ffc107',
+          info: '#607d8b',
+          success: '#4caf50',
+        },
         dark: {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,

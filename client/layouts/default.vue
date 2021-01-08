@@ -23,7 +23,7 @@
         <!-- locale lang switch menu -->
         <v-menu bottom left>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn dark icon v-bind="attrs" v-on="on">
+            <v-btn icon v-bind="attrs" v-on="on">
               <v-icon small>mdi-translate</v-icon>
             </v-btn>
           </template>
@@ -36,6 +36,14 @@
             </v-list-item>
           </v-list>
         </v-menu>
+
+        <!-- dark light mode toggle -->
+        <v-btn v-if="isDark" small icon @click="$vuetify.theme.dark = false">
+          <v-icon>mdi-white-balance-sunny</v-icon>
+        </v-btn>
+        <v-btn v-else small icon @click="$vuetify.theme.dark = true">
+          <v-icon>mdi-weather-night</v-icon>
+        </v-btn>
       </div>
 
       <template #extension>
@@ -47,7 +55,8 @@
           label="search"
           clearable
           dense
-        ></v-text-field>
+        >
+        </v-text-field>
       </template>
     </v-app-bar>
 
@@ -61,7 +70,7 @@
       </v-container>
     </v-main>
 
-    <v-bottom-navigation :input-value="isMobile" color="teal" grow app>
+    <v-bottom-navigation :input-value="isMobile" grow app>
       <v-btn>
         <span>{{ $t('bottomNavgation.favorites') }}</span>
         <v-badge color="pink" content="3" overlap
@@ -89,19 +98,29 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { useContext, computed } from '@nuxtjs/composition-api'
+
 export default {
-  data() {
+  setup() {
+    const { $vuetify, store } = useContext()
+
+    const isMobile = computed(() => $vuetify.breakpoint.mobile)
+    const theme = computed(() => $vuetify.theme)
+    const isDark = computed(() => theme.value.isDark)
+    const locales = computed(() => store.state.locales)
+
     return {
-      drawer: null,
-      message3: '',
+      isMobile,
+      theme,
+      isDark,
+      locales,
     }
   },
-  computed: {
-    ...mapState(['locales']),
-    isMobile() {
-      return this.$vuetify.breakpoint.mobile
-    },
+  data() {
+    return {
+      drawer: false,
+      message3: '',
+    }
   },
   methods: {
     changeLocale(newLang) {
