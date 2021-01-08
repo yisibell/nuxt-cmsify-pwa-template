@@ -19,6 +19,7 @@ const page = {
         type: 'default', // section 类型
         blocks: [
           {
+            sectionPosition: '', // 该 block 在 section 中的位置
             sectionId: 1, // 父级 section id
             id: 1, // 当前 block id
             type: 'text', // block 类型

@@ -1,6 +1,7 @@
 import { ref } from '@nuxtjs/composition-api'
 
-const createBlock = (id = 1, sectionId) => ({
+const createBlock = (id = 1, sectionId, sectionPosition) => ({
+  sectionPosition,
   sectionId,
   id,
   type: 'text',
@@ -16,13 +17,14 @@ const createBlock = (id = 1, sectionId) => ({
   ],
 })
 
-const createSection = (sectionId = 1, pageId = 1) => ({
+const createSection = (sectionId = 1, pageId = 1, type = 'default') => ({
   pageId,
-  type: 'default',
+  type,
   blocks: [
-    createBlock(1, sectionId),
-    createBlock(2, sectionId),
-    createBlock(3, sectionId),
+    createBlock(1, sectionId, 'sidebar'),
+    createBlock(2, sectionId, 'sidebar'),
+    createBlock(3, sectionId, 'main'),
+    createBlock(4, sectionId, 'main'),
   ],
 })
 
@@ -31,7 +33,11 @@ export const useCms = (ctx) => {
   const page = ref({
     resourceType: 'frontend.navigation.page',
     cmsPage: {
-      sections: [createSection(), createSection(2, 1), createSection(3, 1)],
+      sections: [
+        createSection(),
+        createSection(2, 1, 'sidebar'),
+        createSection(3, 1),
+      ],
     },
   })
 
