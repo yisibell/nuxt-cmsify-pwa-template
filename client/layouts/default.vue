@@ -30,7 +30,7 @@
 
           <v-list>
             <v-list-item v-for="(lang, i) in locales" :key="i">
-              <v-list-item-title @click="changeLocale(lang)">
+              <v-list-item-title @click="handleLocaleChange(lang)">
                 <v-btn text block>{{ lang }}</v-btn>
               </v-list-item-title>
             </v-list-item>
@@ -48,7 +48,7 @@
 
       <template #extension>
         <v-text-field
-          v-model="message3"
+          v-model="searchStr"
           class="app-bar__right__search"
           prepend-inner-icon="search"
           solo
@@ -70,7 +70,7 @@
       </v-container>
     </v-main>
 
-    <v-bottom-navigation :input-value="isMobile" grow app>
+    <v-bottom-navigation v-if="isMobile" grow app>
       <v-btn>
         <span>{{ $t('bottomNavgation.favorites') }}</span>
         <v-badge color="pink" content="3" overlap
@@ -98,33 +98,20 @@
 </template>
 
 <script>
-import { useContext, computed } from '@nuxtjs/composition-api'
+import { useContext, computed, ref } from '@nuxtjs/composition-api'
 
 export default {
   setup() {
-    const { $vuetify, store } = useContext()
+    const { $vuetify, store, route } = useContext()
 
     const isMobile = computed(() => $vuetify.breakpoint.mobile)
     const theme = computed(() => $vuetify.theme)
     const isDark = computed(() => theme.value.isDark)
     const locales = computed(() => store.state.locales)
+    const searchStr = ref('')
 
-    return {
-      isMobile,
-      theme,
-      isDark,
-      locales,
-    }
-  },
-  data() {
-    return {
-      drawer: false,
-      message3: '',
-    }
-  },
-  methods: {
-    changeLocale(newLang) {
-      const { fullPath, query, params } = this.$route
+    function handleLocaleChange(newLang) {
+      const { fullPath, query, params } = route.value
       const { lang } = params
       let restPath = fullPath
 
@@ -135,7 +122,17 @@ export default {
       const path = `/${newLang}${restPath}`
 
       this.$router.push({ path, query })
-    },
+    }
+
+    return {
+      drawer: false,
+      isMobile,
+      theme,
+      isDark,
+      locales,
+      searchStr,
+      handleLocaleChange,
+    }
   },
 }
 </script>

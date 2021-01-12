@@ -11,7 +11,7 @@ function resolve(dir) {
 
 export default {
   router: {
-    middleware: 'i18n',
+    middleware: ['i18n'],
   },
   telemetry: true,
   server: {
@@ -71,6 +71,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '~/modules/theme',
   ],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
