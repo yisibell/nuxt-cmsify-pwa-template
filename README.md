@@ -42,6 +42,10 @@ $ npm run generate
 
 # Features
 
+## 支持响应式
+
+**状态:** :heavy_check_mark:
+
 ## 支持多语言
 
 **状态：** :heavy_check_mark:
@@ -53,6 +57,18 @@ $ npm run generate
 ## 渐进式 Web 应用
 
 **状态：** :heavy_check_mark:
+
+## 换肤方案
+
+**状态：** :heavy_check_mark:
+
+基于 `nuxt Layout` + `nuxt module` 特性实现。
+
+## 友好的 `vue3 composition api` 过渡方案。
+
+**状态：** :heavy_check_mark:
+
+基于 `@nuxtjs/composition-api` 管理。
 
 ## 友好的**开发**、**正式生产** 和 **测试生产** 环境区分，基于 `@nuxtjs/dotenv` 设计。
 
