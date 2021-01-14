@@ -1,7 +1,17 @@
 <template>
-  <div>this is login page</div>
+  <div>
+    <h3>this is login page</h3>
+    <p>based on definePageComponent method.</p>
+  </div>
 </template>
 
 <script>
-export default {}
+import { definePageComponent } from '~/utils'
+export default definePageComponent({
+  setup() {
+    return {
+      page: 'login',
+    }
+  },
+})
 </script>

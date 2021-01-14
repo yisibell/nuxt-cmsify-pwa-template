@@ -3,5 +3,6 @@
 </template>
 
 <script>
-export default {}
+import { definePageComponent } from '~/utils'
+export default definePageComponent({})
 </script>

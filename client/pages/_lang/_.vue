@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import { computed } from '@nuxtjs/composition-api'
+import { definePageComponent } from '~/utils'
 import { useCms } from '~/composables/hooks/useCms'
 
 const pagesMap = {
@@ -14,24 +16,24 @@ const pagesMap = {
   'frontend.detail.page': () => import('@/components/views/ProductView'),
 }
 
-export function getComponentBy(resourceType) {
-  if (!resourceType || !pagesMap[resourceType]) return
-  return pagesMap[resourceType]
-}
+export default definePageComponent({
+  setup() {
+    function getComponentBy(resourceType) {
+      if (!resourceType || !pagesMap[resourceType]) return
+      return pagesMap[resourceType]
+    }
 
-export default {
-  asyncData(ctx) {
-    const { page } = useCms(ctx)
+    const { page } = useCms()
+
+    const getComponent = computed(
+      () => page.value && getComponentBy(page.value.resourceType)
+    )
 
     return {
       page: page.value,
-      cmsPage: page.value.cmsPage,
+      cmsPage: page.value && page.value.cmsPage,
+      getComponent,
     }
   },
-  computed: {
-    getComponent() {
-      return this.page && getComponentBy(this.page.resourceType)
-    },
-  },
-}
+})
 </script>

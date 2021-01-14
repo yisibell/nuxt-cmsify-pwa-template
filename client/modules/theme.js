@@ -1,7 +1,8 @@
-export default function theme(moduleOptions) {
-  this.nuxt.hook('ready', (nuxt) => {
-    // Your custom code here
+import consola from 'consola'
 
-    console.log(nuxt.setLayout)
-  })
+export default function theme(moduleOptions) {
+  const moduleObject = this
+  const { addPlugin } = moduleObject
+
+  consola.info(addPlugin)
 }
