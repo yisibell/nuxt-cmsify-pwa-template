@@ -58,9 +58,9 @@ $ npm run generate
 
 **状态：** :heavy_check_mark:
 
-## 换肤方案
+## 皮肤系统
 
-**状态：** :heavy_check_mark:
+**状态：** :x:
 
 基于 `nuxt Layout` + `nuxt module` 特性实现。
 

@@ -1,3 +1,3 @@
 # packages
 
-All our private npm package here.
+All our private npm package built here.
