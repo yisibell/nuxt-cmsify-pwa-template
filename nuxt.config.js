@@ -1,6 +1,6 @@
-import path from 'path'
-import colors from 'vuetify/es5/util/colors'
-import { envFileName } from './build/utils'
+const path = require('path')
+const colors = require('vuetify/es5/util/colors')
+const { envFileName } = require('./build/utils')
 require('dotenv').config()
 
 const srcDir = 'client'
@@ -9,7 +9,7 @@ function resolve(dir) {
   return path.join(__dirname, srcDir, dir)
 }
 
-export default {
+module.exports = {
   router: {
     middleware: ['i18n'],
   },

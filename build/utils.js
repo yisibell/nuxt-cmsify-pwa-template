@@ -1,4 +1,4 @@
-export function envFileName() {
+exports.envFileName = function () {
   const { NUXT_ENV_APP } = process.env
 
   if (NUXT_ENV_APP === 'ft') {
