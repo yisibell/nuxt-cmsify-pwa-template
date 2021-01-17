@@ -1,7 +1,7 @@
-const path = require('path')
-const colors = require('vuetify/es5/util/colors')
-const { envFileName } = require('./build/utils')
-require('dotenv').config()
+import path from 'path'
+import DotEnv from 'dotenv'
+
+DotEnv.config()
 
 const srcDir = 'client'
 
@@ -9,17 +9,29 @@ function resolve(dir) {
   return path.join(__dirname, srcDir, dir)
 }
 
-module.exports = {
+function envFileName() {
+  const { NUXT_ENV_APP } = process.env
+
+  if (NUXT_ENV_APP === 'ft') {
+    return '.env.ft'
+  } else if (NUXT_ENV_APP === 'production') {
+    return '.env.production'
+  }
+
+  return '.env.development'
+}
+
+export default {
+  // nuxt 构建源码目录
+  srcDir,
   router: {
     middleware: ['i18n'],
   },
   telemetry: true,
   server: {
     host: '0.0.0.0',
-    port: 80,
+    port: 3002,
   },
-  // nuxt 构建源码目录
-  srcDir,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - nuxt-cmsify-pwa',
@@ -58,11 +70,11 @@ module.exports = {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    ['@nuxtjs/dotenv', { filename: envFileName(), path: './' }],
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    ['@nuxtjs/dotenv', { filename: envFileName(), path: './' }],
     '@nuxtjs/pwa',
     '@nuxtjs/composition-api',
   ],
@@ -79,26 +91,6 @@ module.exports = {
     customVariables: ['~/assets/styles/vuetify/variables.scss'],
     theme: {
       dark: true,
-      themes: {
-        light: {
-          primary: '#2196f3',
-          secondary: '#03a9f4',
-          accent: '#00bcd4',
-          error: '#f44336',
-          warning: '#ffc107',
-          info: '#607d8b',
-          success: '#4caf50',
-        },
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
-        },
-      },
     },
   },
 
@@ -134,4 +126,5 @@ module.exports = {
       }
     },
   },
+  serverMiddleware: ['~/serverMiddleware/logger'],
 }

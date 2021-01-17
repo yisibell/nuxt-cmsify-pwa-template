@@ -102,7 +102,9 @@ import { useContext, computed, ref } from '@nuxtjs/composition-api'
 
 export default {
   setup() {
-    const { $vuetify, store, route } = useContext()
+    const { $vuetify, store, route, env } = useContext()
+
+    console.log(env)
 
     const isMobile = computed(() => $vuetify.breakpoint.mobile)
     const theme = computed(() => $vuetify.theme)
