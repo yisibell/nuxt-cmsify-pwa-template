@@ -7,24 +7,43 @@ A Progressive Web App based on Nuxt.js.
 ```bash
 # install dependencies
 $ npm install
+```
 
-# serve with hot reload at localhost:3000
+## 开发模式
+
+``` bash
+# 带热更新
+# 可修改命令参数
+# --theme=shein 来变更开发当前皮肤类型，默认为 default
+# --env=ft 来使当前皮肤应用 .env.ft 环境变量，默认使用 .env.development 环境变量
 $ npm run dev
-
-# build for default theme and launch server
-$ npm run build
-$ npm run start
-
-# build for shein theme and launch server
-$ npm run build:shein
-$ npm run start
-
-# launch server with pm2
-npm run pm2:start
-
 ```
 
 打开浏览器预览：**localhost:3001/**。
+
+## 皮肤构建
+
+``` bash
+# 可用于构建单个皮肤或 
+# --theme 构建指定皮肤
+$ npm run build
+
+# 构建 themes 目录下的全部皮肤
+$ npm run build:all
+```
+
+## 启动应用
+
+``` bash
+# 两种方式启动
+# 1. 无托管
+$ npm start
+
+# 2. 使用 pm2 启动
+$ npm run pm2:start
+```
+
+**注：** 在执行启动应用目录之前，需优先执行构建皮肤命令。如果你期望对所有皮肤进行联合测试，请先执行 `npm run build:all`，否则执行单个皮肤构建 `npm run build`。
 
 # Used Technologies
 
