@@ -26,10 +26,9 @@
     "lint": "npm run lint:js",
     "test": "jest",
     "start": "cross-env NODE_ENV=production NUXT_APP_ENV=production node server/index.js",
-    "dev": "cross-env NODE_ENV=development NUXT_APP_ENV=ft node server/index.js",
-    "dev:shein": "cross-env NODE_ENV=development NUXT_APP_ENV=ft NUXT_APP_THEME_NAME=shein node server/index.js",
-    "build": "cross-env NUXT_APP_ENV=production nuxt build",
-    "build:shein": "cross-env NUXT_APP_ENV=production NUXT_APP_THEME_NAME=shein nuxt build"
+    "build": "node ./scripts/build.js --theme=shein",
+    "build:all": "node ./scripts/build.js --all",
+    "dev": "node ./scripts/dev.js --theme=default"
   },
   "dependencies": {
     "@aidol/svg-icon": "^1.2.0",
