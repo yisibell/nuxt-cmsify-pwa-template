@@ -1,0 +1,10 @@
+{
+  "home": {
+    "title": "welcome"
+  },
+  "bottomNavgation": {
+    "account": "Account",
+    "favorites": "Favorites",
+    "cart": "Cart"
+  }
+}

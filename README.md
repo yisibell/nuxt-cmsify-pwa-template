@@ -11,19 +11,17 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm run dev
 
-# build for production and launch server
-$ npm run build:prod
+# build for default theme and launch server
+$ npm run build
 $ npm run start
 
-# build for ft and launch server
-$ npm run build:ft
+# build for shein theme and launch server
+$ npm run build:shein
 $ npm run start
 
 # launch server with pm2
 npm run pm2:start
 
-# generate static project
-$ npm run generate
 ```
 
 打开浏览器预览：**localhost:3001/**。
@@ -62,7 +60,9 @@ $ npm run generate
 
 **状态：** :x:
 
-基于 `nuxt Layout` + `nuxt module` 特性实现。
+## 用户跟踪
+
+**状态：** :x:
 
 ## 友好的 `vue3 composition api` 过渡方案。
 
