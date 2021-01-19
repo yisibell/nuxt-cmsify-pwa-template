@@ -1,11 +1,10 @@
-const util = require('util')
-const exec = util.promisify(require('child_process').exec)
+const execa = require('execa')
 const consola = require('consola')
 
-async function start() {
-  const { stdout, stderr } = await exec('npm start')
+async function run() {
+  const { stdout, stderr } = await execa('npm', ['start'])
   consola.info('stdout:', stdout)
   consola.error('stderr:', stderr)
 }
 
-start()
+run()

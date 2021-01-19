@@ -42,7 +42,7 @@ npm run pm2:start
 
 ## 支持响应式
 
-**状态:** :heavy_check_mark:
+**状态：** :heavy_check_mark:
 
 ## 支持多语言
 
@@ -58,9 +58,13 @@ npm run pm2:start
 
 ## 皮肤系统
 
-**状态：** :x:
+**状态：** :heavy_check_mark:
 
 ## 用户跟踪
+
+**状态：** :x:
+
+## 公共 package 抽取
 
 **状态：** :x:
 
