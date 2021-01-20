@@ -55,7 +55,7 @@ async function start() {
   })
 
   app.listen(port, host)
-  consola.success(`Server listening on http://${host}:${port}`) // eslint-disable-line no-console
+  consola.success(`Server listening on http://${host}:${port}`)
 }
 
 start()

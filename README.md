@@ -87,6 +87,18 @@ $ npm run pm2:start
 
 **状态：** :x:
 
+1. `nuxt-module` 将公共插件体系以 `nuxt module` 的形式封装独立。供各个皮肤使用。
+
+内容将包括如下：
+
+- **api 仓库** 数据接口定义及 `request` 工具。统一接口请求入口。
+- **composables 仓库** 组合式业务逻辑。
+- **sprite svg icon** `svg` 图标。
+- **toast** `toast` 提示工具。
+- **cms** `cms` 渲染组件。
+- **i18n** 本地语言包。
+
+
 ## 友好的 `vue3 composition api` 过渡方案。
 
 **状态：** :heavy_check_mark:
