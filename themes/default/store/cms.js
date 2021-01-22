@@ -47,7 +47,7 @@ export const mutations = {
 export const actions = {
   // 拉取 cms page 数据
   fetchCmsPage ({ commit }, path) {
-    console.log(path)
+    console.log('page path:', path)
     return new Promise((resolve) => {
       const page = {
         resourceType: 'frontend.navigation.page',
