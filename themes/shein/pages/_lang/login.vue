@@ -6,9 +6,13 @@
 </template>
 
 <script>
-import { definePageComponent } from '~/utils'
+import { onMounted } from '@nuxtjs/composition-api'
+import { definePageComponent } from '~~/packages/helpers'
 export default definePageComponent({
   setup() {
+    onMounted(() => {
+      console.log(66666)
+    })
     return {
       page: 'login',
     }

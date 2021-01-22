@@ -33,17 +33,21 @@
   },
   "dependencies": {
     "@aidol/svg-icon": "^1.2.0",
-    "@nuxtjs/axios": "^5.12.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "defu": "^3.2.2",
     "koa": "^2.13.1",
-    "nuxt": "^2.14.6",
+    "nuxt": "^2.14.12",
     "vue-i18n": "^8.22.2",
     "vue-toasted": "^1.1.28"
   },
   "devDependencies": {
+    "@nuxt/types": "^2.14.12",
+    "@nuxt/typescript-build": "^2.0.4",
     "@nuxtjs/composition-api": "^0.17.0",
     "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-config": "^5.0.0",
+    "@nuxtjs/eslint-config-typescript": "^5.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.3",
     "@nuxtjs/vuetify": "^1.11.2",
@@ -65,6 +69,6 @@
     "yargs": "^16.2.0"
   },
   "engines": {
-    "node": ">= 10.x"
+    "node": ">= 12.x"
   }
 }

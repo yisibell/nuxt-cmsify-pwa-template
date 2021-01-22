@@ -10,6 +10,6 @@ export const useCms = () => {
   })
 
   return {
-    page,
+    page
   }
 }

@@ -8,7 +8,7 @@ import CmsNoComponent from './components/CmsNoComponent'
 import CmsBlockDefault from './components/blocks/CmsBlockDefault'
 import CmsElementText from './components/elements/CmsElementText'
 
-export function install(Vue) {
+export function install (Vue) {
   ;[
     CmsNoComponent,
     CmsPage,
@@ -18,12 +18,12 @@ export function install(Vue) {
     CmsSectionDefault,
     CmsSectionSidebar,
     CmsBlockDefault,
-    CmsElementText,
+    CmsElementText
   ].forEach((v) => {
     Vue.component(v.name, v)
   })
 }
 
 export default {
-  install,
+  install
 }

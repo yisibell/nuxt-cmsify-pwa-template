@@ -15,25 +15,25 @@ export default {
   props: {
     content: {
       type: Object,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
   computed: {
-    getComponent() {
+    getComponent () {
       return getCmsBlockComponent(this.content)
     },
-    cmsClass() {
+    cmsClass () {
       return this.content?.cssClass
     },
-    backgroundMediaMode() {
+    backgroundMediaMode () {
       return this.content.backgroundMediaMode
     },
-    slotStyles() {
+    slotStyles () {
       const { backgroundMedia } = this.content
       return {
-        backgroundImage: backgroundMedia ? `url(${backgroundMedia.url})` : null,
+        backgroundImage: backgroundMedia ? `url(${backgroundMedia.url})` : null
       }
-    },
-  },
+    }
+  }
 }
 </script>

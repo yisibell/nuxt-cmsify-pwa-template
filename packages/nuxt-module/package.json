@@ -1,0 +1,7 @@
+{
+  "name": "@luban/nuxt-module",
+  "version": "1.0.0",
+  "description": "A nuxt module for luban.",
+  "main": "./src/index.js",
+  "module": "./src/index.js"
+}

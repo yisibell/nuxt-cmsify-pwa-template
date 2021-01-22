@@ -13,13 +13,13 @@ import { useCms } from '~/composables/hooks/useCms'
 
 const pagesMap = {
   'frontend.navigation.page': () => import('@/components/views/CategoryView'),
-  'frontend.detail.page': () => import('@/components/views/ProductView'),
+  'frontend.detail.page': () => import('@/components/views/ProductView')
 }
 
 export default definePageComponent({
-  setup() {
-    function getComponentBy(resourceType) {
-      if (!resourceType || !pagesMap[resourceType]) return
+  setup () {
+    function getComponentBy (resourceType) {
+      if (!resourceType || !pagesMap[resourceType]) { return }
       return pagesMap[resourceType]
     }
 
@@ -32,8 +32,8 @@ export default definePageComponent({
     return {
       page: page.value,
       cmsPage: page.value && page.value.cmsPage,
-      getComponent,
+      getComponent
     }
-  },
+  }
 })
 </script>

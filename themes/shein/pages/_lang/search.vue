@@ -3,6 +3,6 @@
 </template>
 
 <script>
-import { definePageComponent } from '~/utils'
+import { definePageComponent } from '~~/packages/helpers'
 export default definePageComponent({})
 </script>

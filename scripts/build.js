@@ -4,25 +4,25 @@ const execa = require('execa')
 const consola = require('consola')
 const argv = require('yargs/yargs')(process.argv.slice(2)).parse()
 
-async function buildTheme(themeName = 'default') {
+async function buildTheme (themeName = 'default') {
   consola.info(`start building ${themeName} theme...`)
   const cmdStr = `cross-env NUXT_APP_ENV=production NUXT_APP_THEME_NAME=${themeName} nuxt build`
   await execa.command(cmdStr, {
-    stdio: 'inherit',
+    stdio: 'inherit'
   })
 
   consola.success(`${themeName} theme build complete.`)
 }
 
-function getThemeDirNames() {
+function getThemeDirNames () {
   const basePath = path.join(process.cwd(), 'themes')
   const arr = fs.readdirSync(basePath)
-  const dirs = arr.filter((v) => fs.statSync(`${basePath}/${v}`).isDirectory())
+  const dirs = arr.filter(v => fs.statSync(`${basePath}/${v}`).isDirectory())
 
   return dirs
 }
 
-async function run() {
+async function run () {
   try {
     const { all, theme } = argv
 

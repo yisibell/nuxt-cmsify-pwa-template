@@ -10,8 +10,8 @@ export default {
   props: {
     cmsPage: {
       type: Object,
-      default: () => ({}),
-    },
-  },
+      default: () => ({})
+    }
+  }
 }
 </script>

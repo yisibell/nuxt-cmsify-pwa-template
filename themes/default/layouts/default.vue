@@ -1,16 +1,18 @@
 <template>
   <v-app>
     <v-app-bar class="app-bar" app extended>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer" />
       <v-toolbar-title>{{ $t('home.title') }}</v-toolbar-title>
 
       <div class="app-bar__right">
         <template v-if="!isMobile">
-          <v-btn icon><v-icon>mdi-account-outline</v-icon></v-btn>
+          <v-btn icon>
+            <v-icon>mdi-account-outline</v-icon>
+          </v-btn>
           <v-btn icon>
             <v-badge color="pink" content="2" overlap>
-              <v-icon>mdi-heart-outline</v-icon></v-badge
-            >
+              <v-icon>mdi-heart-outline</v-icon>
+            </v-badge>
           </v-btn>
 
           <v-btn icon>
@@ -24,14 +26,18 @@
         <v-menu bottom left>
           <template v-slot:activator="{ on, attrs }">
             <v-btn icon v-bind="attrs" v-on="on">
-              <v-icon small>mdi-translate</v-icon>
+              <v-icon small>
+                mdi-translate
+              </v-icon>
             </v-btn>
           </template>
 
           <v-list>
             <v-list-item v-for="(lang, i) in locales" :key="i">
               <v-list-item-title @click="handleLocaleChange(lang)">
-                <v-btn text block>{{ lang }}</v-btn>
+                <v-btn text block>
+                  {{ lang }}
+                </v-btn>
               </v-list-item-title>
             </v-list-item>
           </v-list>
@@ -55,8 +61,7 @@
           label="search"
           clearable
           dense
-        >
-        </v-text-field>
+        />
       </template>
     </v-app-bar>
 
@@ -73,16 +78,24 @@
     <v-bottom-navigation v-if="isMobile" grow app>
       <v-btn>
         <span>{{ $t('bottomNavgation.favorites') }}</span>
-        <v-badge color="pink" content="3" overlap
-          ><v-icon>mdi-heart</v-icon></v-badge
+        <v-badge
+          color="pink"
+          content="3"
+          overlap
         >
+          <v-icon>mdi-heart</v-icon>
+        </v-badge>
       </v-btn>
 
       <v-btn>
         <span>{{ $t('bottomNavgation.cart') }}</span>
-        <v-badge color="green" content="2" overlap
-          ><v-icon>mdi-cart</v-icon></v-badge
+        <v-badge
+          color="green"
+          content="2"
+          overlap
         >
+          <v-icon>mdi-cart</v-icon>
+        </v-badge>
       </v-btn>
 
       <v-btn>
@@ -97,14 +110,13 @@
   </v-app>
 </template>
 
-<script>
+<script lang="ts">
 import { useContext, computed, ref } from '@nuxtjs/composition-api'
 
 export default {
-  setup() {
-    const { $vuetify, store, route, env } = useContext()
-
-    console.log(env)
+  setup () {
+    const ctx = useContext()
+    const { $vuetify, store, route, redirect } = ctx as any
 
     const isMobile = computed(() => $vuetify.breakpoint.mobile)
     const theme = computed(() => $vuetify.theme)
@@ -112,7 +124,7 @@ export default {
     const locales = computed(() => store.state.locales)
     const searchStr = ref('')
 
-    function handleLocaleChange(newLang) {
+    function handleLocaleChange (newLang: string): void {
       const { fullPath, query, params } = route.value
       const { lang } = params
       let restPath = fullPath
@@ -123,7 +135,7 @@ export default {
 
       const path = `/${newLang}${restPath}`
 
-      this.$router.push({ path, query })
+      redirect(path, query)
     }
 
     return {
@@ -133,9 +145,9 @@ export default {
       isDark,
       locales,
       searchStr,
-      handleLocaleChange,
+      handleLocaleChange
     }
-  },
+  }
 }
 </script>
 

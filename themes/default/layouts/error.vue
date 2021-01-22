@@ -1,50 +1,49 @@
 <template>
   <div class="error-page">
-    <div class="error-page__code">{{ code }}</div>
-    <div class="error-page__msg">{{ msg }}</div>
+    <div class="error-page__code">
+      {{ code }}
+    </div>
+    <div class="error-page__msg">
+      {{ msg }}
+    </div>
     <div class="error-page__sub-msg">
       <span>The requested URL was not found on this server.</span>
       <i>That’s all we know.</i>
     </div>
     <div class="error-page__robot">
-      <img src="/images/robot.png" alt="robot" />
+      <img src="/images/robot.png" alt="robot">
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  layout: 'empty',
+<script lang="ts">
+import { defineComponent, useMeta, computed } from '@nuxtjs/composition-api'
+export default defineComponent({
   props: {
     error: {
       type: Object,
       default: () => ({
         statusCode: '',
-        message: '',
-      }),
-    },
-  },
-  data() {
-    return {
-      pageNotFound: '404 Not Found',
-      otherError: 'this is an error.',
+        message: ''
+      })
     }
   },
-  computed: {
-    code() {
-      return this.error.statusCode || 404
-    },
-    msg() {
-      return this.error.message || this.otherError
-    },
-  },
-  head() {
+  head: {},
+  setup (props) {
+    const { title } = useMeta()
+    const pageNotFound: string = '404 Not Found'
+    const otherError: string = 'this is an error.'
+    const code = computed(() => props.error.statusCode || 404)
+    const msg = computed(() => props.error.message || otherError)
+
+    title.value = code.value === 404 ? pageNotFound : otherError
+
     return {
-      title:
-        this.error.statusCode === 404 ? this.pageNotFound : this.otherError,
+      code,
+      msg
     }
-  },
-}
+  }
+})
 </script>
 
 <style lang="scss" scoped>

@@ -17,16 +17,16 @@ export default {
   props: {
     content: {
       type: Object,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
   computed: {
-    getBlocks() {
+    getBlocks () {
       return this.content.blocks || []
     },
-    isSizingModeBoxed() {
+    isSizingModeBoxed () {
       return this.content.sizingMode === 'boxed'
-    },
-  },
+    }
+  }
 }
 </script>

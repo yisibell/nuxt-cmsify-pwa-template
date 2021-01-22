@@ -8,8 +8,8 @@ export default {
   props: {
     page: {
       type: Object,
-      default: () => ({}),
-    },
-  },
+      default: () => ({})
+    }
+  }
 }
 </script>

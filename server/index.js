@@ -3,21 +3,21 @@ const consola = require('consola')
 const Koa = require('koa')
 const { getSiteConfig } = require('./api/site')
 
-async function start() {
+async function start () {
   const app = new Koa()
   const host = process.env.HOST || '127.0.0.1'
-  const port = process.env.PORT || 3001
+  const port = process.env.PORT || 3002
   const isDev = !(app.env === 'production')
   const { NUXT_APP_THEME_NAME } = process.env
 
-  consola.info(`[${app.env}]: \n`)
+  consola.info(`[${app.env}]-[${NUXT_APP_THEME_NAME}]: \n`)
 
   let nuxtDev = null
 
   if (isDev) {
     // Import and Set Nuxt.js options
     const config = require('../nuxt.config.js')({
-      themeName: NUXT_APP_THEME_NAME,
+      themeName: NUXT_APP_THEME_NAME
     })
 
     config.dev = true
@@ -56,6 +56,10 @@ async function start() {
 
   app.listen(port, host)
   consola.success(`Server listening on http://${host}:${port}`)
+
+  app.on('error', (err, ctx) => {
+    console.error('server error', err, ctx)
+  })
 }
 
 start()
