@@ -7,8 +7,7 @@
 </template>
 
 <script>
-import { computed } from '@nuxtjs/composition-api'
-import { definePageComponent } from '~/utils'
+import { computed, defineComponent } from '@nuxtjs/composition-api'
 import { useCms } from '~/composables/hooks/useCms'
 
 const pagesMap = {
@@ -16,7 +15,7 @@ const pagesMap = {
   'frontend.detail.page': () => import('@/components/views/ProductView')
 }
 
-export default definePageComponent({
+export default defineComponent({
   setup () {
     function getComponentBy (resourceType) {
       if (!resourceType || !pagesMap[resourceType]) { return }
