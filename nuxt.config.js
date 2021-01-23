@@ -1,14 +1,11 @@
-/* eslint-disable */
 require('dotenv').config()
 const defu = require('defu')
 
-module.exports = function(
-  {
-    buildDirBase = '.nuxt/themes', // 构建目录基地址
-    srcDirBase = 'themes', // 构建源码目录基地址
-    themeName = 'default' // 皮肤名称
-  } = {}
-) {
+const config = ({
+  buildDirBase = '.nuxt/themes', // 构建目录基地址
+  srcDirBase = 'themes', // 构建源码目录基地址
+  themeName = 'default', // 皮肤名称
+} = {}) => {
   const { NUXT_APP_THEME_NAME, NUXT_APP_ENV } = process.env
   themeName = NUXT_APP_THEME_NAME || themeName
 
@@ -19,7 +16,7 @@ module.exports = function(
   let extraConfig = {}
   try {
     extraConfig = require(`./${srcDir}/nuxt.config.js`)
-  } catch(err) {
+  } catch (err) {
     extraConfig = {}
   }
 
@@ -29,19 +26,16 @@ module.exports = function(
     } else if (NUXT_APP_ENV === 'production') {
       return '.env.production'
     }
-  
+
     return '.env.development'
   }
 
   const mainConfig = {
     // nuxt 构建输出目录
     buildDir,
-    
     // nuxt 构建源码目录
     srcDir,
-
     telemetry: true,
-
     // Global page headers (https://go.nuxtjs.dev/config-head)
     head: {
       titleTemplate: '%s - nuxt-cmsify-pwa',
@@ -62,25 +56,16 @@ module.exports = function(
         },
       ],
     },
-
     // Auto import components (https://go.nuxtjs.dev/config-components)
     components: true,
-  
-    buildModules: [
-      '@nuxtjs/eslint-module',
-    ],
-  
-    modules: [
-      '~~/packages/nuxt-module'
-    ],
-  
+    buildModules: ['@nuxtjs/eslint-module'],
+    modules: ['~~/packages/nuxt-module'],
     vuetify: {
       customVariables: ['~/assets/styles/vuetify/variables.scss'],
       theme: {
         dark: true,
       },
     },
-  
     pwa: {
       manifest: {
         name: 'Nuxt Cmsify Pwa',
@@ -88,12 +73,13 @@ module.exports = function(
         useWebmanifestExtension: false,
       },
     },
-
-    dotenv: { 
-      filename: dotenvFileName(), 
-      path: './' 
-    }
+    dotenv: {
+      filename: dotenvFileName(),
+      path: './',
+    },
   }
 
   return defu(mainConfig, extraConfig)
 }
+
+module.exports = config

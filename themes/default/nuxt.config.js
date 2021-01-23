@@ -1,5 +1,3 @@
-/* eslint-disable */ 
-
 module.exports = {
   head: {
     titleTemplate: '%s - nuxt-cmsify-pwa',
@@ -18,10 +16,10 @@ module.exports = {
   plugins: [
     { src: '~/plugins/cms', mode: 'client' },
     { src: '~/plugins/i18n' },
+    { src: '~/plugins/global-setup' },
   ],
 
   router: {
     middleware: ['i18n'],
   },
-
 }

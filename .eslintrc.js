@@ -19,5 +19,6 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'nuxt/no-timing-in-fetch-data': 'off',
+    'nuxt/no-cjs-in-config': 'off',
   },
 }

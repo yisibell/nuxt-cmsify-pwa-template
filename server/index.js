@@ -28,9 +28,17 @@ async function start() {
     await builder.build()
   } else {
     app.use(async (ctx, next) => {
-      const res = await getSiteConfig()
-      const { site } = res.data.data
-      const { themeName } = site
+      let siteConfig = {}
+
+      try {
+        const res = await getSiteConfig()
+        const { site } = res.data.data
+        siteConfig = site
+      } catch (err) {
+        console.error('fetch site config error: ', err)
+      }
+
+      const { themeName } = siteConfig
       const config = require('../nuxt.config.js')({ themeName })
 
       config.dev = false

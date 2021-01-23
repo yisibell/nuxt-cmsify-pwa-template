@@ -1,4 +1,4 @@
-import { cloneDeep } from 'lodash'
+import { useAsync } from '@nuxtjs/composition-api'
 
 const createBlock = (id = 1, sectionId, sectionPosition) => ({
   sectionPosition,
@@ -28,26 +28,9 @@ const createSection = (sectionId = 1, pageId = 1, type = 'default') => ({
   ],
 })
 
-export const state = () => ({
-  page: {},
-})
-
-export const getters = {
-  getPage(state) {
-    return state.page
-  },
-}
-
-export const mutations = {
-  SET_PAGE(state, obj) {
-    state.page = cloneDeep(obj)
-  },
-}
-
-export const actions = {
-  // 拉取 cms page 数据
-  fetchCmsPage({ commit }, path) {
-    console.log('page path:', path)
+export const useCms = (app) => {
+  // nuxt 原始选项 async 钩子函数
+  const page = useAsync(() => {
     return new Promise((resolve) => {
       const page = {
         resourceType: 'frontend.navigation.page',
@@ -60,9 +43,12 @@ export const actions = {
         },
       }
       setTimeout(() => {
-        commit('SET_PAGE', page)
         resolve(page)
-      }, 1000)
+      }, 300)
     })
-  },
+  })
+
+  return {
+    page,
+  }
 }

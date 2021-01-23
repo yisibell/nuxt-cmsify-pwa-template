@@ -7,11 +7,14 @@
 </template>
 
 <script>
-import { onMounted, useContext } from '@nuxtjs/composition-api'
-import { definePageComponent } from '~/utils'
+import { onMounted, useContext, inject } from '@nuxtjs/composition-api'
+import { definePageComponent } from '~~/packages/helpers'
 export default definePageComponent({
   setup() {
     const { app } = useContext()
+    const globalKey = inject('globalKey')
+
+    console.log(globalKey)
 
     onMounted(async () => {
       await console.log('in client: ', app)
@@ -19,6 +22,7 @@ export default definePageComponent({
       console.log(res)
       app.$toast.global.info('this is a custom toast.')
     })
+
     return {
       page: 'login',
     }

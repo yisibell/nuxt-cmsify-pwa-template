@@ -6,17 +6,25 @@
     "name": "elenh",
     "email": "yisiwings@163.com"
   },
+  "license": "MIT",
   "keywords": [
     "vue",
     "nuxt",
-    "cmsify pwa template",
+    "template",
+    "cmsify",
     "cms",
     "pwa",
     "ssr",
     "vuetify",
     "pm2",
-    "koa"
+    "koa",
+    "composition-api"
   ],
+  "repository": {
+    "type": "git",
+    "directory": "https://github.com/yisibell/nuxt-cmsify-pwa-template.git"
+  },
+  "homepage": "https://github.com/yisibell/nuxt-cmsify-pwa-template",
   "scripts": {
     "pm2:start": "pm2 start",
     "pm2:stop": "pm2 stop NuxtCmsifyPwaTemplate",
