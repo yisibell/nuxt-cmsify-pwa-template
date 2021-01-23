@@ -8,18 +8,20 @@ Vue.use(Toasted, {
   fitToScreen: false,
   fullWidth: false,
   iconPack: 'material',
-  className: ['my-custom-toasted']
+  className: ['my-custom-toasted'],
 })
 
 const createToast = ({ type, icon, defaultMessage = '' } = {}) => {
   return {
     name: type,
     message: (payload) => {
-      if (typeof payload === 'string') { return payload }
+      if (typeof payload === 'string') {
+        return payload
+      }
 
       return payload.message || defaultMessage
     },
-    options: { type, icon }
+    options: { type, icon },
   }
 }
 
@@ -30,15 +32,14 @@ const registers = [
   createToast({
     type: 'warning',
     icon: 'warning',
-    defaultMessage: 'warning...'
-  })
+    defaultMessage: 'warning...',
+  }),
 ]
 
 registers.forEach((v) => {
   Vue.toasted.register(v.name, v.message, v.options)
 })
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default (ctx, inject) => {
   inject('toast', Vue.toasted)
 }

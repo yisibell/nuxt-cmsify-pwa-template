@@ -11,12 +11,12 @@
       <i>That’s all we know.</i>
     </div>
     <div class="error-page__robot">
-      <img src="/images/robot.png" alt="robot">
+      <img src="/images/robot.png" alt="robot" />
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, useMeta, computed } from '@nuxtjs/composition-api'
 export default defineComponent({
   props: {
@@ -24,15 +24,14 @@ export default defineComponent({
       type: Object,
       default: () => ({
         statusCode: '',
-        message: ''
-      })
-    }
+        message: '',
+      }),
+    },
   },
-  head: {},
-  setup (props) {
+  setup(props) {
     const { title } = useMeta()
-    const pageNotFound: string = '404 Not Found'
-    const otherError: string = 'this is an error.'
+    const pageNotFound = '404 Not Found'
+    const otherError = 'this is an error.'
     const code = computed(() => props.error.statusCode || 404)
     const msg = computed(() => props.error.message || otherError)
 
@@ -40,9 +39,10 @@ export default defineComponent({
 
     return {
       code,
-      msg
+      msg,
     }
-  }
+  },
+  head: {},
 })
 </script>
 

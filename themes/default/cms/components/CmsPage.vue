@@ -14,14 +14,14 @@ export default {
   props: {
     content: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   computed: {
-    cmsSections () {
+    cmsSections() {
       return this.content ? this.content.sections : []
-    }
-  }
+    },
+  },
 }
 </script>
 

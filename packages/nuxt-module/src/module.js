@@ -2,11 +2,11 @@ import path from 'path'
 import consola from 'consola'
 import { extendBuild } from './build'
 
-export async function runModule (moduleObject, moduleOptions) {
+export async function runModule(moduleObject, moduleOptions) {
   const {
     vuetify: vuetifyOptions,
     pwa: pwaOptions,
-    dotenv: dotenvOptions
+    dotenv: dotenvOptions,
   } = moduleObject.options
 
   // extend webpack config
@@ -29,7 +29,7 @@ export async function runModule (moduleObject, moduleOptions) {
     src: path.join(__dirname, '..', 'plugins', 'svg-icon.js'),
     fileName: 'svg-icon.js',
     mode: 'client',
-    options: moduleOptions
+    options: moduleOptions,
   })
 
   consola.info('2. add vue-toasted plugin')
@@ -37,13 +37,13 @@ export async function runModule (moduleObject, moduleOptions) {
     src: path.join(__dirname, '..', 'plugins', 'vue-toasted.js'),
     fileName: 'vue-toasted.js',
     mode: 'client',
-    options: moduleOptions
+    options: moduleOptions,
   })
 
   consola.info('3. add api and request plugin')
   moduleObject.addPlugin({
     src: path.join(__dirname, '..', 'plugins', 'request.js'),
     fileName: 'request.js',
-    options: moduleOptions
+    options: moduleOptions,
   })
 }

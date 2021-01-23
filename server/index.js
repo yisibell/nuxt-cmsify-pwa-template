@@ -3,7 +3,7 @@ const consola = require('consola')
 const Koa = require('koa')
 const { getSiteConfig } = require('./api/site')
 
-async function start () {
+async function start() {
   const app = new Koa()
   const host = process.env.HOST || '127.0.0.1'
   const port = process.env.PORT || 3002
@@ -17,7 +17,7 @@ async function start () {
   if (isDev) {
     // Import and Set Nuxt.js options
     const config = require('../nuxt.config.js')({
-      themeName: NUXT_APP_THEME_NAME
+      themeName: NUXT_APP_THEME_NAME,
     })
 
     config.dev = true

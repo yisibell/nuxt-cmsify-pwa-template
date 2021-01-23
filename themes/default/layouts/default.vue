@@ -24,11 +24,9 @@
 
         <!-- locale lang switch menu -->
         <v-menu bottom left>
-          <template v-slot:activator="{ on, attrs }">
+          <template #activator="{ on, attrs }">
             <v-btn icon v-bind="attrs" v-on="on">
-              <v-icon small>
-                mdi-translate
-              </v-icon>
+              <v-icon small> mdi-translate </v-icon>
             </v-btn>
           </template>
 
@@ -78,22 +76,14 @@
     <v-bottom-navigation v-if="isMobile" grow app>
       <v-btn>
         <span>{{ $t('bottomNavgation.favorites') }}</span>
-        <v-badge
-          color="pink"
-          content="3"
-          overlap
-        >
+        <v-badge color="pink" content="3" overlap>
           <v-icon>mdi-heart</v-icon>
         </v-badge>
       </v-btn>
 
       <v-btn>
         <span>{{ $t('bottomNavgation.cart') }}</span>
-        <v-badge
-          color="green"
-          content="2"
-          overlap
-        >
+        <v-badge color="green" content="2" overlap>
           <v-icon>mdi-cart</v-icon>
         </v-badge>
       </v-btn>
@@ -110,13 +100,13 @@
   </v-app>
 </template>
 
-<script lang="ts">
+<script>
 import { useContext, computed, ref } from '@nuxtjs/composition-api'
 
 export default {
-  setup () {
+  setup() {
     const ctx = useContext()
-    const { $vuetify, store, route, redirect } = ctx as any
+    const { $vuetify, store, route, redirect } = ctx
 
     const isMobile = computed(() => $vuetify.breakpoint.mobile)
     const theme = computed(() => $vuetify.theme)
@@ -124,7 +114,7 @@ export default {
     const locales = computed(() => store.state.locales)
     const searchStr = ref('')
 
-    function handleLocaleChange (newLang: string): void {
+    function handleLocaleChange(newLang) {
       const { fullPath, query, params } = route.value
       const { lang } = params
       let restPath = fullPath
@@ -145,9 +135,9 @@ export default {
       isDark,
       locales,
       searchStr,
-      handleLocaleChange
+      handleLocaleChange,
     }
-  }
+  },
 }
 </script>
 

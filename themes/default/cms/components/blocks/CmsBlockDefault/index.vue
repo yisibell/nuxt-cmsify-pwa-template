@@ -11,22 +11,22 @@ import CmsGenericElement from '../../CmsGenericElement'
 export default {
   name: 'CmsBlockDefault',
   components: {
-    CmsGenericElement
+    CmsGenericElement,
   },
   props: {
     content: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   computed: {
-    getSlots () {
+    getSlots() {
       return this.content.slots || []
     },
-    getContent () {
+    getContent() {
       return this.getSlots.length && this.getSlots[0]
-    }
-  }
+    },
+  },
 }
 </script>
 

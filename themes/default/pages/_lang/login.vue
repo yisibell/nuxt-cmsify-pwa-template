@@ -10,7 +10,7 @@
 import { onMounted, useContext } from '@nuxtjs/composition-api'
 import { definePageComponent } from '~/utils'
 export default definePageComponent({
-  setup () {
+  setup() {
     const { app } = useContext()
 
     onMounted(async () => {
@@ -20,8 +20,8 @@ export default definePageComponent({
       app.$toast.global.info('this is a custom toast.')
     })
     return {
-      page: 'login'
+      page: 'login',
     }
-  }
+  },
 })
 </script>

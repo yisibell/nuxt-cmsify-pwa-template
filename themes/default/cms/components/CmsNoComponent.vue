@@ -15,20 +15,22 @@ export default {
   props: {
     content: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
-  data () {
+  data() {
     return {}
   },
   computed: {
-    elementType () {
-      if (this.content.pageId) { return 'Section' }
+    elementType() {
+      if (this.content.pageId) {
+        return 'Section'
+      }
       return this.content.sectionId ? 'Block' : 'Slot'
     },
-    getElementType () {
+    getElementType() {
       return this.content ? this.content.type : ''
-    }
-  }
+    },
+  },
 }
 </script>

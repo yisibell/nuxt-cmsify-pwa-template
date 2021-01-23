@@ -42,12 +42,9 @@
     "vue-toasted": "^1.1.28"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.12",
-    "@nuxt/typescript-build": "^2.0.4",
     "@nuxtjs/composition-api": "^0.17.0",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/eslint-config": "^5.0.0",
-    "@nuxtjs/eslint-config-typescript": "^5.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.3",
     "@nuxtjs/vuetify": "^1.11.2",

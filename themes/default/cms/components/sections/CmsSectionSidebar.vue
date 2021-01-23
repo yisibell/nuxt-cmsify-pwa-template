@@ -30,28 +30,28 @@ export default {
   props: {
     content: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   computed: {
     // 所有 blocks
-    getBlocks () {
+    getBlocks() {
       return this.content.blocks || []
     },
     // 侧边栏 blocks
-    getSidebarBlocks () {
+    getSidebarBlocks() {
       return this.getBlocks.filter(
-        block => block.sectionPosition === 'sidebar'
+        (block) => block.sectionPosition === 'sidebar'
       )
     },
     // 主体 blocks
-    getMainBlocks () {
-      return this.getBlocks.filter(block => block.sectionPosition === 'main')
+    getMainBlocks() {
+      return this.getBlocks.filter((block) => block.sectionPosition === 'main')
     },
-    isSizingModeBoxed () {
+    isSizingModeBoxed() {
       return this.content.sizingMode === 'boxed'
-    }
-  }
+    },
+  },
 }
 </script>
 

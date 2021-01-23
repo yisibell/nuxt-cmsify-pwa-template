@@ -1,12 +1,12 @@
 export default {
   sections: {
     default: 'CmsSectionDefault',
-    sidebar: 'CmsSectionSidebar'
+    sidebar: 'CmsSectionSidebar',
   },
   blocks: {
-    text: 'CmsBlockDefault'
+    text: 'CmsBlockDefault',
   },
   elements: {
-    text: 'CmsElementText'
-  }
+    text: 'CmsElementText',
+  },
 }

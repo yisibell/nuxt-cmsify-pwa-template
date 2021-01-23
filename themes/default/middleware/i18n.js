@@ -6,7 +6,7 @@ export default function ({
   params,
   error,
   redirect,
-  $vuetify
+  $vuetify,
 }) {
   // default locale
   const defaultLocale = app.i18n.fallbackLocale

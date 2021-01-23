@@ -68,7 +68,6 @@ module.exports = function(
   
     buildModules: [
       '@nuxtjs/eslint-module',
-      '@nuxt/typescript-build'
     ],
   
     modules: [

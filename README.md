@@ -50,10 +50,9 @@ $ npm run pm2:start
 - **nuxt.js**
 - **@nuxtjs/pwa**
 - **@nuxtjs/composition-api**
-- **@nuxtjs/axios**
+- **axios**
 - **@nuxtjs/dotenv**
 - **@nuxtjs/vuetify**
-- **typescript**
 - **scss**
 - **vue-toasted**
 

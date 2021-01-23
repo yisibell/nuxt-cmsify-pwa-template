@@ -7,5 +7,5 @@ const getSiteConfig = () => {
 }
 
 module.exports = {
-  getSiteConfig
+  getSiteConfig,
 }

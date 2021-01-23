@@ -11,10 +11,10 @@ const createBlock = (id = 1, sectionId, sectionPosition) => ({
       type: 'text',
       config: {},
       data: {
-        msg: `section id: ${sectionId}, block id: ${id} -> this is a text Element`
-      }
-    }
-  ]
+        msg: `section id: ${sectionId}, block id: ${id} -> this is a text Element`,
+      },
+    },
+  ],
 })
 
 const createSection = (sectionId = 1, pageId = 1, type = 'default') => ({
@@ -24,29 +24,29 @@ const createSection = (sectionId = 1, pageId = 1, type = 'default') => ({
     createBlock(1, sectionId, 'sidebar'),
     createBlock(2, sectionId, 'sidebar'),
     createBlock(3, sectionId, 'main'),
-    createBlock(4, sectionId, 'main')
-  ]
+    createBlock(4, sectionId, 'main'),
+  ],
 })
 
 export const state = () => ({
-  page: {}
+  page: {},
 })
 
 export const getters = {
-  getPage (state) {
+  getPage(state) {
     return state.page
-  }
+  },
 }
 
 export const mutations = {
-  SET_PAGE (state, obj) {
+  SET_PAGE(state, obj) {
     state.page = cloneDeep(obj)
-  }
+  },
 }
 
 export const actions = {
   // 拉取 cms page 数据
-  fetchCmsPage ({ commit }, path) {
+  fetchCmsPage({ commit }, path) {
     console.log('page path:', path)
     return new Promise((resolve) => {
       const page = {
@@ -55,14 +55,14 @@ export const actions = {
           sections: [
             createSection(),
             createSection(2, 1, 'sidebar'),
-            createSection(3, 1)
-          ]
-        }
+            createSection(3, 1),
+          ],
+        },
       }
       setTimeout(() => {
         commit('SET_PAGE', page)
         resolve(page)
       }, 1000)
     })
-  }
+  },
 }

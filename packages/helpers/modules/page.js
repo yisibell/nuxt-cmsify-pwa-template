@@ -8,12 +8,12 @@ import { defineComponent } from '@nuxtjs/composition-api'
  */
 export const definePageComponent = (options) => {
   return defineComponent({
-    layout (ctx) {
+    layout(ctx) {
       const { env } = ctx
       const { NUXT_APP_THEME_NAME } = env
 
       return NUXT_APP_THEME_NAME || 'default'
     },
-    ...options
+    ...options,
   })
 }

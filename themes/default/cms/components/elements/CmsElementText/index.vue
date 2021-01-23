@@ -10,15 +10,15 @@ export default {
   props: {
     content: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   computed: {
-    msg () {
+    msg() {
       const { data } = this.content
       return data.msg
-    }
-  }
+    },
+  },
 }
 </script>
 
