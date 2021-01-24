@@ -30,7 +30,7 @@ const config = ({
     return '.env.development'
   }
 
-  const mainConfig = {
+  const defaultConfig = {
     // nuxt 构建输出目录
     buildDir,
     // nuxt 构建源码目录
@@ -79,7 +79,7 @@ const config = ({
     },
   }
 
-  return defu(mainConfig, extraConfig)
+  return defu(extraConfig, defaultConfig)
 }
 
 module.exports = config

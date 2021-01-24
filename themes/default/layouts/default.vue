@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar class="app-bar" app extended>
-      <v-app-bar-nav-icon @click="drawer = !drawer" />
+    <v-app-bar class="app-bar" app flat>
+      <v-app-bar-nav-icon v-if="isMobile" @click="drawer = !drawer" />
       <v-toolbar-title>{{ $t('home.title') }}</v-toolbar-title>
 
       <div class="app-bar__right">
@@ -50,16 +50,8 @@
         </v-btn>
       </div>
 
-      <template #extension>
-        <v-text-field
-          v-model="searchStr"
-          class="app-bar__right__search"
-          prepend-inner-icon="search"
-          solo
-          label="search"
-          clearable
-          dense
-        />
+      <template v-if="!isMobile" #extension>
+        <base-category-nav />
       </template>
     </v-app-bar>
 
@@ -67,7 +59,7 @@
       this is navigation drawer
     </v-navigation-drawer>
 
-    <v-main class="grey lighten-2">
+    <v-main class="lighten-2">
       <v-container>
         <nuxt />
       </v-container>
@@ -102,8 +94,12 @@
 
 <script>
 import { useContext, computed, ref } from '@nuxtjs/composition-api'
+import BaseCategoryNav from '~~/packages/theme-base/components/BaseCategoryNav'
 
 export default {
+  components: {
+    BaseCategoryNav,
+  },
   setup() {
     const ctx = useContext()
     const { $vuetify, store, route, redirect } = ctx

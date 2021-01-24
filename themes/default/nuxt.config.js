@@ -22,4 +22,11 @@ module.exports = {
   router: {
     middleware: ['i18n'],
   },
+
+  vuetify: {
+    customVariables: ['~/assets/styles/vuetify/variables.scss'],
+    theme: {
+      dark: false,
+    },
+  },
 }
