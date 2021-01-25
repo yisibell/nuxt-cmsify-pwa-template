@@ -1,5 +1,3 @@
-import { useAsync } from '@nuxtjs/composition-api'
-
 const createBlock = (id = 1, sectionId, sectionPosition) => ({
   sectionPosition,
   sectionId,
@@ -28,27 +26,20 @@ const createSection = (sectionId = 1, pageId = 1, type = 'default') => ({
   ],
 })
 
-export const useCms = (app) => {
-  // nuxt 原始选项 async 钩子函数
-  const page = useAsync(() => {
-    return new Promise((resolve) => {
-      const page = {
-        resourceType: 'frontend.navigation.page',
-        cmsPage: {
-          sections: [
-            createSection(),
-            createSection(2, 1, 'sidebar'),
-            createSection(3, 1),
-          ],
-        },
-      }
-      setTimeout(() => {
-        resolve(page)
-      }, 300)
-    })
+export const useCms = () => {
+  return new Promise((resolve) => {
+    const page = {
+      resourceType: 'frontend.navigation.page',
+      cmsPage: {
+        sections: [
+          createSection(),
+          createSection(2, 1, 'sidebar'),
+          createSection(3, 1),
+        ],
+      },
+    }
+    setTimeout(() => {
+      resolve(page)
+    }, 300)
   })
-
-  return {
-    page,
-  }
 }

@@ -1,13 +1,10 @@
 <template>
   <div :key="$route.path">
-    <client-only>
-      <component :is="getComponent" :cms-page="cmsPage" :page="page" />
-    </client-only>
+    <component :is="getComponent" :cms-page="cmsPage" :page="page" />
   </div>
 </template>
 
 <script>
-import { computed, useContext } from '@nuxtjs/composition-api'
 import { useCms } from '~~/packages/composables/hooks/useCms'
 import { definePageComponent } from '~~/packages/helpers'
 
@@ -17,26 +14,26 @@ const pagesMap = {
 }
 
 export default definePageComponent({
-  setup() {
-    const ctx = useContext()
-    const { page } = useCms(ctx)
+  async asyncData() {
+    const page = await useCms()
 
-    const getComponent = computed(
-      () => page.value && getComponentBy(page.value.resourceType)
-    )
-
-    function getComponentBy(resourceType) {
+    return {
+      page,
+      cmsPage: page && page.cmsPage,
+    }
+  },
+  computed: {
+    getComponent() {
+      return this.page && this.getComponentBy(this.page.resourceType)
+    },
+  },
+  methods: {
+    getComponentBy(resourceType) {
       if (!resourceType || !pagesMap[resourceType]) {
         return
       }
       return pagesMap[resourceType]
-    }
-
-    return {
-      page: page.value,
-      cmsPage: page.value && page.value.cmsPage,
-      getComponent,
-    }
+    },
   },
 })
 </script>

@@ -6,7 +6,7 @@ const { getSiteConfig } = require('./api/site')
 async function start() {
   const app = new Koa()
   const host = process.env.HOST || '127.0.0.1'
-  const port = process.env.PORT || 3002
+  const port = process.env.PORT || 3004
   const isDev = !(app.env === 'production')
   const { NUXT_APP_THEME_NAME } = process.env
 

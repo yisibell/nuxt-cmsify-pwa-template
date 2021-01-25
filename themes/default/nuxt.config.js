@@ -14,7 +14,7 @@ module.exports = {
   css: ['~/assets/styles/index.scss'],
 
   plugins: [
-    { src: '~/plugins/cms', mode: 'client' },
+    { src: '~/plugins/cms' },
     { src: '~/plugins/i18n' },
     { src: '~/plugins/global-setup' },
   ],
